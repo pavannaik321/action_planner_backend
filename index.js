@@ -107,6 +107,9 @@ mongoose.connect("mongodb+srv://hairwayon2024:Pavan21p5959@cluster0.zqxqw.mongod
 
 //api routes
 
+app.get('/',(req,res)=>{
+  res.send("Node Server is Running, Yay!!");
+})
 
 app.get('/api/v1/items/', async (req, res) => {
   try {
