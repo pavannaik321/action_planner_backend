@@ -16,6 +16,7 @@ mongoose.connect("mongodb+srv://hairwayon2024:Pavan21p5959@cluster0.zqxqw.mongod
 
   const User = require('./models/todoSchema');
 
+
 app.get('/',(req,res)=>{
   res.send("Node Server is Running, Yay!!");
 })
@@ -107,7 +108,7 @@ app.put('/api/v1/items', async (req, res) => {
 
     // Save the updated user document
     await user.save();
-    console.log(`updating todos for user: ${userId}`);
+
     return res.status(200).json({ message: 'Todo item updated successfully' });
   } catch (error) {
     console.error('Error:', error);
