@@ -26,10 +26,9 @@ jobs:
 
     - name: Install k6
       run: |
-        curl -fsSL https://dl.k6.io/deb/k6.asc | sudo apt-key add -
-        echo "deb https://dl.k6.io/deb/ stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-        sudo apt-get update
-        sudo apt-get install -y k6
+        curl -LO https://github.com/grafana/k6/releases/download/v0.45.0/k6-v0.45.0-linux-amd64.deb
+        sudo dpkg -i k6-v0.45.0-linux-amd64.deb
+        k6 version
 
     - name: Run performance tests with k6
       run: k6 run test/performance.js
