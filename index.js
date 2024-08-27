@@ -6,6 +6,7 @@ const port = 3000;
 
 //middleware configuration
 app.use(express.json());
+print("hello");
 
 //configure mongodb
 mongoose.connect("mongodb+srv://hairwayon2024:Pavan21p5959@cluster0.zqxqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
