@@ -6,7 +6,6 @@ const port = 3000;
 
 //middleware configuration
 app.use(express.json());
-print("hello");
 
 //configure mongodb
 mongoose.connect("mongodb+srv://hairwayon2024:Pavan21p5959@cluster0.zqxqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
@@ -16,97 +15,6 @@ mongoose.connect("mongodb+srv://hairwayon2024:Pavan21p5959@cluster0.zqxqw.mongod
   });
 
   const User = require('./models/todoSchema');
-
-//Model 
-// let usersList = [
-//     {
-//       user_id: '1',
-//       todos: [
-//         { id: '01', todoText: 'Buy milk', isDone: true },
-//         { id: '02', todoText: 'Walk the dog', isDone: true },
-//         { id: '03', todoText: 'Do laundry', isDone: false },
-//         { id: '04', todoText: 'Clean the house', isDone: false },
-//         { id: '05', todoText: 'Cook dinner', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '2',
-//       todos: [
-//         { id: '06', todoText: 'Finish project', isDone: false },
-//         { id: '07', todoText: 'Exercise', isDone: true },
-//         { id: '08', todoText: 'Read a book', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '3',
-//       todos: [
-//         { id: '09', todoText: 'Plan vacation', isDone: true },
-//         { id: '10', todoText: 'Grocery shopping', isDone: false },
-//         { id: '11', todoText: 'Fix the car', isDone: false },
-//         { id: '12', todoText: 'Call parents', isDone: true }
-//       ]
-//     },
-//     {
-//       user_id: '4',
-//       todos: [
-//         { id: '13', todoText: 'Attend meeting', isDone: false },
-//         { id: '14', todoText: 'Complete assignment', isDone: true },
-//         { id: '15', todoText: 'Pay bills', isDone: true }
-//       ]
-//     },
-//     {
-//       user_id: '5',
-//       todos: [
-//         { id: '16', todoText: 'Walk the cat', isDone: false },
-//         { id: '17', todoText: 'Water plants', isDone: true },
-//         { id: '18', todoText: 'Organize closet', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '6',
-//       todos: [
-//         { id: '19', todoText: 'Buy groceries', isDone: false },
-//         { id: '20', todoText: 'Plan birthday party', isDone: true },
-//         { id: '21', todoText: 'Watch a movie', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '7',
-//       todos: [
-//         { id: '22', todoText: 'Prepare presentation', isDone: true },
-//         { id: '23', todoText: 'Clean kitchen', isDone: false },
-//         { id: '24', todoText: 'Visit friend', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '8',
-//       todos: [
-//         { id: '25', todoText: 'Work on side project', isDone: false },
-//         { id: '26', todoText: 'Practice coding', isDone: true },
-//         { id: '27', todoText: 'Cook new recipe', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '9',
-//       todos: [
-//         { id: '28', todoText: 'Schedule doctor appointment', isDone: false },
-//         { id: '29', todoText: 'Buy new shoes', isDone: true },
-//         { id: '30', todoText: 'Write blog post', isDone: false }
-//       ]
-//     },
-//     {
-//       user_id: '10',
-//       todos: [
-//         { id: '31', todoText: 'Go hiking', isDone: true },
-//         { id: '32', todoText: 'Start meditation', isDone: false },
-//         { id: '33', todoText: 'Declutter workspace', isDone: true }
-//       ]
-//     }
-//   ];
-  
-  
-
-//api routes
 
 app.get('/',(req,res)=>{
   res.send("Node Server is Running, Yay!!");
@@ -199,7 +107,7 @@ app.put('/api/v1/items', async (req, res) => {
 
     // Save the updated user document
     await user.save();
-
+    console.log(`updating todos for user: ${userId}`);
     return res.status(200).json({ message: 'Todo item updated successfully' });
   } catch (error) {
     console.error('Error:', error);
